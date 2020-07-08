@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./", // 路径
+    "paths": {
+        "@/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+
+}
