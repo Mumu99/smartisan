@@ -1,6 +1,6 @@
 # vue-smartisan
 
-> A Vue.js project
+> A 高仿锤子官网🔨
 
 ## Build Setup
 
