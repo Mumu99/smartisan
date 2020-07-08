@@ -9,15 +9,15 @@
       to="/"
     >首页</TabbarItem>
     <TabbarItem
-      icon="search"
+      icon="bars"
       to="/category"
     >分类</TabbarItem>
     <TabbarItem
-      icon="friends-o"
+      icon="shopping-cart"
       to="/shopcat"
     >购物车</TabbarItem>
     <TabbarItem
-      icon="setting-o"
+      icon="manager"
       to="/user"
     >个人中心</TabbarItem>
   </Tabbar>
