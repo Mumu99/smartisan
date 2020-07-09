@@ -197,6 +197,7 @@ export default {
     // 注册组件
     CountDown
   },
+  props: { fourPalace: Object },
   data () {
     return {
       time: 30 * 60 * 60 * 1000 // 倒计时

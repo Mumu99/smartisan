@@ -166,6 +166,9 @@ export default {
     // 注册组件
     Icon
   },
+  props: {
+    goodsRow: Object
+  },
   data () {
     return {
 

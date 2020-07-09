@@ -44,6 +44,9 @@ export default {
   components: {
     // 注册组件
   },
+  props: {
+    entryCenter: Object
+  },
   data () {
     return {
 

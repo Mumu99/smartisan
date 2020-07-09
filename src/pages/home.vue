@@ -3,23 +3,24 @@
     <!-- 头部，搜索和logo -->
     <Header />
     <!-- 轮播 -->
-    <BannerSwiper />
+    <BannerSwiper :banner="banner" />
     <!-- warp-新品首发 -->
-    <Wrap />
+    <Wrap :entryCenter="entryCenter" />
     <!-- full -->
-    <Full />
+    <Full :oneColumn="oneColumn" />
     <!-- 秒杀 -->
-    <Palace />
+    <Palace :fourPalace="fourPalace" />
     <!-- 商城热销排行 -->
-    <GoodsRowWrap />
+    <GoodsRowWrap :goodsRow="goodsRow" />
     <!-- twoFull -->
-    <TwoFull />
+    <TwoFull :twoColumn="twoColumn" />
     <!-- 猜你喜欢 -->
     <Like />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Header from '../components/header'
 import BannerSwiper from '../components/bannerSwiper'
 import Wrap from '../components/wrap'
@@ -41,7 +42,11 @@ export default {
     Like
   },
   mounted () {
-    // this.swiper.slideTo(1, 1000, false)
+    this.$store.dispatch('getHomeList')
+  },
+  computed: {
+    // 获取相对应数据
+    ...mapGetters(['banner', 'entryCenter', 'oneColumn', 'fourPalace', 'goodsRow', 'goodsRow2', 'goodsRow3', 'goodsRow4', 'twoColumn'])
   }
 }
 </script>

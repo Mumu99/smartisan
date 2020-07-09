@@ -16,6 +16,9 @@ export default {
   components: {
     // 注册组件
   },
+  props: {
+    oneColumn: Object
+  },
   data () {
     return {
 

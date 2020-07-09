@@ -80,6 +80,9 @@ export default {
     List,
     Icon
   },
+  props: {
+
+  },
   data () {
     return {
       // 瀑布流需要的数据

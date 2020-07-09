@@ -6,13 +6,17 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import App from './App'
 import router from './router'
+import store from './store'
 import './style/reset.css'
+import * as API from './api'
+Vue.prototype.$API = API
 
 Vue.use(VueAwesomeSwiper /* { default options with global component } */)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
+  render: h => h(App),
   router,
-  render: h => h(App)
+  store
 }).$mount('#app')
