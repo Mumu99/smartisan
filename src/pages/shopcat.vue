@@ -442,7 +442,7 @@ export default {
   },
   methods: {
     writer () {
-      this.isWriter = true
+      this.isWriter = !this.isWriter
       this.checked = false
     }
   }
