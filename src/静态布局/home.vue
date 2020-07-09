@@ -602,8 +602,7 @@ export default {
 >>> .swiper-pagination-bullet-active
   background-color: #fff
 .container
-  position: relative
-  overflow: hidden
+  overflow: auto
   width: 100%
   height: 100%
   header
