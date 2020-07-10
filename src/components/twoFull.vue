@@ -4,6 +4,7 @@
       <img
         src="https://resource.smartisan.com/resource/ca885c625c920f584500cfb8062831ea.png?x-oss-process=image/resize,w_375/format,webp"
         alt=""
+        width="100%"
         height="125"
       >
     </a>
@@ -11,6 +12,7 @@
       <img
         src="https://resource.smartisan.com/resource/7928205e91db5b47881f6b6810eb3ac1.png?x-oss-process=image/resize,w_375/format,webp"
         alt=""
+        width="100%"
         height="125"
       >
     </a>

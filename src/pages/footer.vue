@@ -3,6 +3,7 @@
     v-model="active"
     active-color="#d55148"
     inactive-color="#ababab"
+    class="tab"
   >
     <TabbarItem
       icon="home-o"
@@ -40,4 +41,7 @@ export default {
 }
 </script>
 
-<style lang='stylus' rel='stylesheet/stylus' scoped></style>
+<style lang='stylus' rel='stylesheet/stylus' scoped>
+.tab
+  z-index: 5
+</style>

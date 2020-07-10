@@ -12,6 +12,12 @@
     <Palace :fourPalace="fourPalace" />
     <!-- 商城热销排行 -->
     <GoodsRowWrap :goodsRow="goodsRow" />
+    <!-- 反季五折清仓 -->
+    <goodsRowTwoWrap :goodsRow2="goodsRow2" />
+    <!-- 拼团优惠专区 -->
+    <goodsRowThereWrap :goodsRow3="goodsRow3" />
+    <!-- 阶梯满减专区 -->
+    <goodsRowFourWrap :goodsRow4="goodsRow4" />
     <!-- twoFull -->
     <TwoFull :twoColumn="twoColumn" />
     <!-- 猜你喜欢 -->
@@ -27,6 +33,9 @@ import Wrap from '../components/wrap'
 import Full from '../components/full'
 import Palace from '../components/palace'
 import GoodsRowWrap from '../components/goodsRowWrap'
+import goodsRowTwoWrap from '../components/goodsRowTwoWrap'
+import goodsRowThereWrap from '../components/goodsRowThereWrap'
+import goodsRowFourWrap from '../components/goodsRowFourWrap'
 import TwoFull from '../components/twoFull'
 import Like from '../components/like'
 export default {
@@ -38,6 +47,9 @@ export default {
     Full,
     Palace,
     GoodsRowWrap,
+    goodsRowTwoWrap,
+    goodsRowThereWrap,
+    goodsRowFourWrap,
     TwoFull,
     Like
   },

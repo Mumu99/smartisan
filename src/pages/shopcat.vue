@@ -31,12 +31,12 @@
     </section>
     <!-- 购物车有物品时展示的 -->
     <section class="cat-content">
-      <Sticky :offset-top="60">
+      <Sticky
+        :offset-top="60"
+        v-if="!isWriter"
+      >
         <!-- 优惠券 -->
-        <div
-          class="discount"
-          v-if="!isWriter"
-        >
+        <div class="discount">
           <div class="left">
             <Icon
               name="balance-list"

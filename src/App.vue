@@ -1,16 +1,20 @@
 <template>
   <div id="app">
+    <Download />
     <Footer />
     <router-view />
   </div>
 </template>
 
 <script>
+// 顶部广告
+import Download from './components/download'
 import Footer from './pages/footer'
 export default {
   name: 'App',
   components: {
-    Footer
+    Footer,
+    Download
   }
 }
 </script>
