@@ -3,11 +3,11 @@
     <ul class="left-content">
       <li
         class="left-content-item"
-        v-for="(item,index) in leftList"
+        v-for="(item,index) in classifyList"
         :key="index"
         :class="{active:currentIndex===index}"
         @click="showActive(index)"
-      >{{item}}</li>
+      >{{item.classifyName}}</li>
     </ul>
   </section>
 </template>
@@ -15,12 +15,14 @@
 <script>
 export default {
   name: 'LeftWrap',
+  props: {
+    classifyList: Array
+  },
   components: {
     // 注册组件
   },
   data () {
     return {
-      leftList: ['抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销', '抖音热销'], // 左边导航的数据
       currentIndex: 0 // 控制高亮
     }
   },
@@ -28,6 +30,7 @@ export default {
     showActive (index) {
       if (this.currentIndex === index) return
       this.currentIndex = index
+      this.$bus.$emit('index', index)
     }
   }
 }

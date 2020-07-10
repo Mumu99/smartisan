@@ -10,6 +10,7 @@ import store from './store'
 import './style/reset.css'
 import * as API from './api'
 Vue.prototype.$API = API
+Vue.prototype.$bus = new Vue()
 
 Vue.use(VueAwesomeSwiper /* { default options with global component } */)
 Vue.config.productionTip = false

@@ -4,14 +4,15 @@
     <Header />
     <div class="category-container">
       <!-- 左边导航nav -->
-      <LeftWrap />
+      <LeftWrap :classifyList="classifyList" />
       <!-- 右边展示 -->
-      <RightWrap />
+      <RightWrap :classifyList="classifyList" />
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Header from '../components/category/header'
 import LeftWrap from '../components/category/leftWrap'
 import RightWrap from '../components/category/rightWrap'
@@ -30,6 +31,14 @@ export default {
   },
   methods: {
 
+  },
+  mounted () {
+    this.$store.dispatch('getClassifyList')
+  },
+  computed: {
+    ...mapState({
+      classifyList: state => state.classify.classifyList
+    })
   }
 }
 </script>

@@ -1,163 +1,28 @@
 <template>
-  <section class="right-wrap">
+  <section
+    class="right-wrap"
+    v-if="classifyList[index]"
+  >
     <!-- 楼层 -->
-    <section class="floot-one">
-      <h2 class="floot-one-title">家居用品</h2>
+    <section
+      class="floot-one"
+      v-for="second in classifyList[index].second"
+      :key="second.classifyId"
+    >
+      <h2 class="floot-one-title">{{second.classifyName}}</h2>
       <aside class="floot-one-content">
-        <figure class="floot-one-item">
+        <figure
+          class="floot-one-item"
+          v-for="third in second.third"
+          :key="third.classifyId"
+        >
           <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
+            :src="third.image"
             alt=""
             width="86"
             height="86"
           >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-      </aside>
-    </section>
-    <section class="floot-one">
-      <h2 class="floot-one-title">家居用品</h2>
-      <aside class="floot-one-content">
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-      </aside>
-    </section>
-    <section class="floot-one">
-      <h2 class="floot-one-title">家居用品</h2>
-      <aside class="floot-one-content">
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-      </aside>
-    </section>
-    <section class="floot-one">
-      <h2 class="floot-one-title">家居用品</h2>
-      <aside class="floot-one-content">
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-      </aside>
-    </section>
-    <section class="floot-one">
-      <h2 class="floot-one-title">家居用品</h2>
-      <aside class="floot-one-content">
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
-        </figure>
-        <figure class="floot-one-item">
-          <img
-            src="https://resource.smartisan.com/resource/b3e0de1e82fd10c93b2b003aeb9e9163.jpg?x-oss-process=image/resize,w_160/format,webp"
-            alt=""
-            width="86"
-            height="86"
-          >
-          <figcaption class="name">水杯水具</figcaption>
+          <figcaption class="name">{{third.classifyName}}</figcaption>
         </figure>
       </aside>
     </section>
@@ -168,14 +33,23 @@
 <script>
 export default {
   name: 'RightWrap',
+  props: {
+    classifyList: Array
+  },
   components: {
     // 注册组件
   },
   data () {
     return {
+      index: '0'
     }
   },
   methods: {
+  },
+  mounted () {
+    this.$bus.$on('index', (index) => {
+      this.index = index
+    })
   }
 }
 </script>
