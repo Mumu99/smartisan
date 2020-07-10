@@ -8,6 +8,7 @@
         placeholder="请输入搜索关键词"
         class="search-v"
         :class="isScroll ? 'pos' : ''"
+        @focus="toSearch"
       />
     </sticky>
   </header>
@@ -31,6 +32,9 @@ export default {
   methods: {
     scrollHeader (a) {
       a.isFixed === true ? this.isScroll = true : this.isScroll = false
+    },
+    toSearch () {
+      this.$router.replace('/search')
     }
   }
 }

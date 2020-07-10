@@ -10,6 +10,10 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
+      '/v1': {
+        target: 'https://shopapi.smartisan.com',
+        changeOrigin: true
+      },
       '/mobile': {
         target: 'https://shopapi.smartisan.com',
         changeOrigin: true

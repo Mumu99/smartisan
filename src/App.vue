@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Download />
-    <Footer />
+    <Footer v-if="$route.meta.isShowFooter" />
     <router-view />
   </div>
 </template>

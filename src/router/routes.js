@@ -2,26 +2,47 @@ import Home from '@/pages/home'
 import Category from '@/pages/category'
 import Shopcat from '@/pages/shopcat'
 import User from '@/pages/user'
+import Search from '@/pages/search'
 
 export default [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: Home,
+    meta: {
+      isShowFooter: true
+    }
   },
   {
     path: '/category',
     name: 'category',
-    component: Category
+    component: Category,
+    meta: {
+      isShowFooter: true
+    }
   },
   {
     path: '/shopcat',
     name: 'shopcat',
-    component: Shopcat
+    component: Shopcat,
+    meta: {
+      isShowFooter: true
+    }
   },
   {
     path: '/user',
     name: 'user',
-    component: User
+    component: User,
+    meta: {
+      isShowFooter: true
+    }
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: Search,
+    meta: {
+      isShowFooter: false
+    }
   }
 ]
