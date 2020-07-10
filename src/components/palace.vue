@@ -2,101 +2,64 @@
   <section class="palace-content">
     <!-- 第一层 -->
     <section class="palace-one">
-      <div class="left">
-        <div class="left-content">
-          <h2 class="left-title">秒杀</h2>
-          <p class="left-palace"><span>10点场</span>
+      <div
+        class="left"
+        v-for="item in oneList"
+        :key="item.uuid"
+      >
+        <div
+          class="left-content"
+          v-if="item.floor[0].activityInfo"
+        >
+          <h2 class="left-title">{{item.floor[0].titleConfig.title}}</h2>
+          <p class="left-palace"><span>{{item.floor[0].activityInfo.homeDescribe}}</span>
             <CountDown
               class="right-palace"
               :time="time"
             />
           </p>
         </div>
-        <p class="left-title-2">限时秒杀</p>
-        <!-- 商品 -->
-        <div class="shop">
-          <a href="javascript:;">
-            <div class="shop-top">
-              <img
-                src="https://resource.smartisan.com/resource/26ed03fda340a490ed0b08a96022c631.jpg?x-oss-process=image/resize,w_144/format,webp"
-                alt=""
-                width="75px"
-                height="75px"
-              >
-              <div class="info">
-                <h4>小霸王 点读笔</h4>
-                <div class="goods-price">
-                  <span class="discount">￥192</span>
-                  <span class="orignal">￥218</span>
-                </div>
-              </div>
-            </div>
-          </a>
-          <!-- 第二个 -->
-          <a href="javascript:;">
-            <div class="shop-top">
-              <img
-                src="https://resource.smartisan.com/resource/26ed03fda340a490ed0b08a96022c631.jpg?x-oss-process=image/resize,w_144/format,webp"
-                alt=""
-                width="75px"
-                height="75px"
-              >
-              <div class="info">
-                <h4>小霸王 点读笔</h4>
-                <div class="goods-price">
-                  <span class="discount">￥192</span>
-                  <span class="orignal">￥218</span>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="left right">
-        <div class="left-content">
-          <h2 class="left-title">秒杀</h2>
+        <div
+          class="left-content"
+          v-if="!item.floor[0].activityInfo"
+        >
+          <h2 class="left-title">{{item.floor[0].titleConfig.title}}</h2>
           <p class="left-palace">
-            限时折扣
+            {{item.floor[1].titleConfig.promotionTitle}}
           </p>
         </div>
-        <p class="left-title-2">限时秒杀</p>
+        <p
+          class="left-title-2"
+          v-if="item.floor[0].activityInfo"
+        >{{item.floor[0].titleConfig.subTitle}}</p>
+        <p
+          class="left-title-2"
+          v-else
+        >{{item.floor[1].titleConfig.promotionTitle}}</p>
         <!-- 商品 -->
         <div class="shop">
-          <a href="javascript:;">
+          <a
+            href="javascript:;"
+            v-for="item in item.floor[0].skuInfo"
+            :key="item.uuid"
+          >
             <div class="shop-top">
               <img
-                src="https://resource.smartisan.com/resource/26ed03fda340a490ed0b08a96022c631.jpg?x-oss-process=image/resize,w_144/format,webp"
+                :src="item.images"
                 alt=""
                 width="75px"
                 height="75px"
               >
               <div class="info">
-                <h4>小霸王 点读笔</h4>
+                <h4>{{item.skuMobileTitle}}</h4>
                 <div class="goods-price">
-                  <span class="discount">￥192</span>
-                  <span class="orignal">￥218</span>
+                  <span class="discount">￥{{item.discountPrice}}</span>
+                  <span class="orignal">￥{{item.originalPrice}}</span>
                 </div>
               </div>
             </div>
           </a>
           <!-- 第二个 -->
-          <a href="javascript:;">
-            <div class="shop-top">
-              <img
-                src="https://resource.smartisan.com/resource/26ed03fda340a490ed0b08a96022c631.jpg?x-oss-process=image/resize,w_144/format,webp"
-                alt=""
-                width="75px"
-                height="75px"
-              >
-              <div class="info">
-                <h4>小霸王 点读笔</h4>
-                <div class="goods-price">
-                  <span class="discount">￥192</span>
-                  <span class="orignal">￥218</span>
-                </div>
-              </div>
-            </div>
-          </a>
         </div>
       </div>
     </section>
@@ -104,40 +67,32 @@
     <section class="palace-two">
       <div class="left">
         <!-- 头部 -->
-        <div class="title">
-          <h2 class="left-title">服饰箱包</h2>
+        <div
+          class="title"
+          v-if="twoList[0]"
+        >
+          <h2 class="left-title">{{twoList[0].titleConfig.title}}</h2>
           <p class="left-palace">
-            限时直降
+            {{twoList[0].titleConfig.promotionTitle}}
           </p>
         </div>
         <div class="shop-content">
           <!-- 商品 -->
-          <div class="shop">
+          <div
+            class="shop"
+            v-for="item in twoList"
+            :key="item.uuid"
+          >
             <div class="shop-one">
               <img
-                src="https://resource.smartisan.com/resource/31968778391601882accf06eef96d0ba.jpg?x-oss-process=image/resize,w_144/format,webp"
+                :src="item.skuInfo[0].images"
                 alt=""
                 width="75"
                 height="75"
               >
               <div class="goods-price">
-                <span class="discount">￥1299</span>
-                <span class="orignal">￥2508</span>
-              </div>
-            </div>
-          </div>
-          <!-- 第二个商品 -->
-          <div class="shop">
-            <div class="shop-one">
-              <img
-                src="https://resource.smartisan.com/resource/31968778391601882accf06eef96d0ba.jpg?x-oss-process=image/resize,w_144/format,webp"
-                alt=""
-                width="75"
-                height="75"
-              >
-              <div class="goods-price">
-                <span class="discount">￥1299</span>
-                <span class="orignal">￥2508</span>
+                <span class="discount">￥{{item.skuInfo[0].discountPrice}}</span>
+                <span class="orignal">￥{{item.skuInfo[0].originalPrice}}</span>
               </div>
             </div>
           </div>
@@ -146,40 +101,32 @@
       <!-- 右 -->
       <div class="left right">
         <!-- 头部 -->
-        <div class="title">
-          <h2 class="left-title">服饰箱包</h2>
+        <div
+          class="title"
+          v-if="twoTlist[0]"
+        >
+          <h2 class="left-title">{{twoTlist[0].titleConfig.title}}</h2>
           <p class="left-palace">
-            限时直降
+            {{twoTlist[0].titleConfig.promotionTitle}}
           </p>
         </div>
         <div class="shop-content">
           <!-- 商品 -->
-          <div class="shop">
+          <div
+            class="shop"
+            v-for="item in twoTlist"
+            :key="item.uuid"
+          >
             <div class="shop-one">
               <img
-                src="https://resource.smartisan.com/resource/31968778391601882accf06eef96d0ba.jpg?x-oss-process=image/resize,w_144/format,webp"
+                :src="item.skuInfo[0].images"
                 alt=""
                 width="75"
                 height="75"
               >
               <div class="goods-price">
-                <span class="discount">￥1299</span>
-                <span class="orignal">￥2508</span>
-              </div>
-            </div>
-          </div>
-          <!-- 第二个商品 -->
-          <div class="shop">
-            <div class="shop-one">
-              <img
-                src="https://resource.smartisan.com/resource/31968778391601882accf06eef96d0ba.jpg?x-oss-process=image/resize,w_144/format,webp"
-                alt=""
-                width="75"
-                height="75"
-              >
-              <div class="goods-price">
-                <span class="discount">￥1299</span>
-                <span class="orignal">￥2508</span>
+                <span class="discount">￥{{item.skuInfo[0].discountPrice}}</span>
+                <span class="orignal">￥{{item.skuInfo[0].originalPrice}}</span>
               </div>
             </div>
           </div>
@@ -200,7 +147,24 @@ export default {
   props: { fourPalace: Object },
   data () {
     return {
-      time: 30 * 60 * 60 * 1000 // 倒计时
+      time: 30 * 60 * 60 * 1000, // 倒计时
+      oneList: [],
+      twoList: [],
+      twoTlist: []
+    }
+  },
+  watch: {
+    fourPalace (val) {
+      this.result(val)
+    }
+  },
+  methods: {
+    result (obj) {
+      const list = [...obj.content]
+      this.oneList = list.splice(0, 2)
+      this.twoList = list[0].floor.splice(0, 2)
+      this.twoTlist = list[0].floor
+      this.time = (this.oneList[0].floor[0].activityInfo.endTime - this.oneList[0].floor[0].activityInfo.beginTime) * 1000
     }
   }
 }
@@ -220,6 +184,15 @@ export default {
       padding-top: 20px
       width: 50%
       border-right: 1px solid rgba(0, 0, 0, 0.08)
+      &:nth-child(2)
+        padding-left: 5px
+        .left-palace
+          padding: 5px
+          border-color: #b1d97a !important
+          color: #b1d97a
+          font-weight: bold
+          font-size: 12px
+          line-height: 10px
       .left-content
         display: flex
         justify-content: space-between
@@ -265,29 +238,19 @@ export default {
             h4
               color: #696969
               font-weight: bold
-              font-size: 12px
+              font-size: 10px
             .goods-price
               display: flex
               margin-top: 8px
               width: 100%
               font-weight: bold
-              font-size: 12px
+              font-size: 10px
               .discount
                 color: #d44d44
               .orignal
                 margin-left: 5px
                 color: #b2b2b2
                 text-decoration: line-through
-    .right
-      padding-left: 10px
-      border: none
-      .left-palace
-        padding: 5px
-        border-color: #b1d97a !important
-        color: #b1d97a
-        font-weight: bold
-        font-size: 12px
-        line-height: 10px
   .palace-two
     display: flex
     padding: 0 0 0 10px
@@ -327,11 +290,11 @@ export default {
               margin-top: 8px
               width: 100%
               font-weight: bold
-              font-size: 12px
+              font-size: 10px
               .discount
                 color: #d44d44
               .orignal
-                margin-left: 5px
+                margin-left: 3px
                 color: #b2b2b2
                 text-decoration: line-through
     .right

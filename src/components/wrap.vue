@@ -1,39 +1,12 @@
 <template>
   <ul class="wrap">
-    <li class="wrap-item">
-      <img
-        src="https://resource.smartisan.com/resource/3f62018bcc882594a156c3845a4424db.png?x-oss-process=image/resize,w_80/format,webp"
-        alt=""
-      >
-      <p>新品首发</p>
-    </li>
-    <li class="wrap-item">
-      <img
-        src="https://resource.smartisan.com/resource/3f62018bcc882594a156c3845a4424db.png?x-oss-process=image/resize,w_80/format,webp"
-        alt=""
-      >
-      <p>新品首发</p>
-    </li>
-    <li class="wrap-item">
-      <img
-        src="https://resource.smartisan.com/resource/3f62018bcc882594a156c3845a4424db.png?x-oss-process=image/resize,w_80/format,webp"
-        alt=""
-      >
-      <p>新品首发</p>
-    </li>
-    <li class="wrap-item">
-      <img
-        src="https://resource.smartisan.com/resource/3f62018bcc882594a156c3845a4424db.png?x-oss-process=image/resize,w_80/format,webp"
-        alt=""
-      >
-      <p>新品首发</p>
-    </li>
-    <li class="wrap-item">
-      <img
-        src="https://resource.smartisan.com/resource/3f62018bcc882594a156c3845a4424db.png?x-oss-process=image/resize,w_80/format,webp"
-        alt=""
-      >
-      <p>新品首发</p>
+    <li
+      class="wrap-item"
+      v-for="item in entryCenter.content"
+      :key="item.uuid"
+    >
+      <img :src="item.src">
+      <p>{{item.entryName}}</p>
     </li>
   </ul>
 </template>

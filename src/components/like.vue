@@ -13,56 +13,27 @@
         :finished="finished"
         finished-text="没有更多了"
         @load="onLoad"
+        class="fall-list"
       >
         <section
           class="fall-left"
           v-for="item in list"
-          :key="item"
+          :key="item.uuid"
         >
           <figure class="s-item-top">
             <span class="green">新品</span>
             <img
-              src="https://resource.smartisan.com/resource/387d57e87385bf1296d72637e78a88a7.jpg?x-oss-process=image/resize,w_324/format,webp"
+              :src="item.images"
               alt=""
               width="169"
               height="169"
             >
           </figure>
           <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
+            <p class="van-multi-ellipsis--l2">{{item.skuName}}</p>
             <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
-            </div>
-          </article>
-        </section>
-      </list>
-      <list
-        v-model="loading"
-        :finished="finished"
-        finished-text="没有更多了"
-        @load="onLoad"
-      >
-        <section
-          class="fall-left"
-          v-for="item in list"
-          :key="item"
-        >
-          <figure class="s-item-top">
-            <span class="green">新品</span>
-            <img
-              src="https://resource.smartisan.com/resource/387d57e87385bf1296d72637e78a88a7.jpg?x-oss-process=image/resize,w_324/format,webp"
-              alt=""
-              width="169"
-              height="169"
-            >
-          </figure>
-          <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
-            <span class="discountPrice">立减 39 元</span>
-            <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
+              <span class="discount">￥{{item.discountPrice}}</span>
+              <span class="orignal">￥{{item.originalPrice}}</span>
             </div>
           </article>
         </section>
@@ -73,6 +44,7 @@
 
 <script>
 import { Icon, List } from 'vant'
+import { mapState } from 'vuex'
 export default {
   name: 'Like',
   components: {
@@ -88,26 +60,28 @@ export default {
       // 瀑布流需要的数据
       list: [],
       loading: false,
-      finished: false
+      finished: false,
+      page: 1,
+      pageSize: 20
     }
+  },
+  computed: {
+    ...mapState({
+      skuInfo: state => state.like.skuInfo
+    })
+  },
+  mounted () {
+    this.getSkuInfoList(this.page, this.pageSize)
   },
   methods: {
     onLoad () {
       // 异步更新数据
       // setTimeout 仅做示例，真实场景中一般为 ajax 请求
-      setTimeout(() => {
-        for (let i = 0; i < 10; i++) {
-          this.list.push(this.list.length + 1)
-        }
-
-        // 加载状态结束
-        this.loading = false
-
-        // 数据全部加载完成
-        if (this.list.length >= 40) {
-          this.finished = true
-        }
-      }, 1000)
+      this.getSkuInfoList(this.page++, this.pageSize).then(() => { this.loading = false }).catch(() => { this.finished = true })
+    },
+    async getSkuInfoList (page, pageSize) {
+      await this.$store.dispatch('getSkuInfo', { page, pageSize })
+      this.list.push(...this.skuInfo)
     }
   }
 }
@@ -134,14 +108,15 @@ export default {
       .van-icon
         margin-top: -3px
   .vueWaterfall
-    display: flex
-    justify-content: space-between
     width: 100%
-    .van-list
-      width: 49%
+    .fall-list
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      width: 100%
       .fall-left
         margin-bottom: 10px
-        width: 100%
+        width: 49%
         background-color: #f5f5f5
         .s-item-top
           position: relative

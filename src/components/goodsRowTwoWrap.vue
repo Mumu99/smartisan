@@ -1,158 +1,38 @@
 <template>
   <section class="goods-row-wrap">
-    <div class="title">
-      <h2>反季五折清仓</h2>
-      <span>查看更多
+    <div
+      class="title"
+      v-if="goodsRow2.titleConfig"
+    >
+      <h2>{{goodsRow2.titleConfig.title}}</h2>
+      <span>{{goodsRow2.titleConfig.linkText}}
         <Icon name="arrow" /></span>
     </div>
     <!-- 商品 -->
     <div class="goods-shop">
       <ul class="shop-content">
-        <li class="s-item">
+        <li
+          class="s-item"
+          v-for="item in goodsRow2.skuInfo"
+          :key="item.uuid"
+        >
           <figure class="s-item-top">
             <span class="green">直降</span>
             <img
-              src="https://resource.smartisan.com/resource/003bd205a42d0701d481353eaba3cd03.jpg?x-oss-process=image/resize,w_190/format,webp"
+              :src="item.images"
               alt=""
               width="100"
               height="100"
             >
           </figure>
           <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
+            <p class="van-multi-ellipsis--l2">{{item.skuTitle}}</p>
             <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
+              <span class="discount">￥{{item.discountPrice}}</span>
+              <span class="orignal">￥{{item.originalPrice}}</span>
             </div>
           </article>
         </li>
-        <li class="s-item">
-          <figure class="s-item-top">
-            <span class="green">直降</span>
-            <img
-              src="https://resource.smartisan.com/resource/003bd205a42d0701d481353eaba3cd03.jpg?x-oss-process=image/resize,w_190/format,webp"
-              alt=""
-              width="100"
-              height="100"
-            >
-          </figure>
-          <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
-            <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
-            </div>
-          </article>
-        </li>
-        <li class="s-item">
-          <figure class="s-item-top">
-            <span class="green">直降</span>
-            <img
-              src="https://resource.smartisan.com/resource/003bd205a42d0701d481353eaba3cd03.jpg?x-oss-process=image/resize,w_190/format,webp"
-              alt=""
-              width="100"
-              height="100"
-            >
-          </figure>
-          <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
-            <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
-            </div>
-          </article>
-        </li>
-        <li class="s-item">
-          <figure class="s-item-top">
-            <span class="green">直降</span>
-            <img
-              src="https://resource.smartisan.com/resource/003bd205a42d0701d481353eaba3cd03.jpg?x-oss-process=image/resize,w_190/format,webp"
-              alt=""
-              width="100"
-              height="100"
-            >
-          </figure>
-          <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
-            <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
-            </div>
-          </article>
-        </li>
-        <li class="s-item">
-          <figure class="s-item-top">
-            <span class="green">直降</span>
-            <img
-              src="https://resource.smartisan.com/resource/003bd205a42d0701d481353eaba3cd03.jpg?x-oss-process=image/resize,w_190/format,webp"
-              alt=""
-              width="100"
-              height="100"
-            >
-          </figure>
-          <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
-            <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
-            </div>
-          </article>
-        </li>
-        <li class="s-item">
-          <figure class="s-item-top">
-            <span class="green">直降</span>
-            <img
-              src="https://resource.smartisan.com/resource/003bd205a42d0701d481353eaba3cd03.jpg?x-oss-process=image/resize,w_190/format,webp"
-              alt=""
-              width="100"
-              height="100"
-            >
-          </figure>
-          <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
-            <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
-            </div>
-          </article>
-        </li>
-        <li class="s-item">
-          <figure class="s-item-top">
-            <span class="green">直降</span>
-            <img
-              src="https://resource.smartisan.com/resource/003bd205a42d0701d481353eaba3cd03.jpg?x-oss-process=image/resize,w_190/format,webp"
-              alt=""
-              width="100"
-              height="100"
-            >
-          </figure>
-          <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
-            <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
-            </div>
-          </article>
-        </li>
-        <li class="s-item">
-          <figure class="s-item-top">
-            <span class="green">直降</span>
-            <img
-              src="https://resource.smartisan.com/resource/003bd205a42d0701d481353eaba3cd03.jpg?x-oss-process=image/resize,w_190/format,webp"
-              alt=""
-              width="100"
-              height="100"
-            >
-          </figure>
-          <article class="s-item-bom">
-            <p class="van-multi-ellipsis--l2">抖音文创 可折叠多功能桌面工具人</p>
-            <div class="goods-price">
-              <span class="discount">￥192</span>
-              <span class="orignal">￥218</span>
-            </div>
-          </article>
-        </li>
-
       </ul>
     </div>
   </section>
@@ -161,7 +41,7 @@
 <script>
 import { Icon } from 'vant'
 export default {
-  name: 'GoodsRowTwoWrap',
+  name: 'GoodsRowWrap',
   components: {
     // 注册组件
     Icon
@@ -228,7 +108,7 @@ export default {
           p
             padding: 5px
             font-weight: 700
-            font-size: 12px
+            font-size: 10px
             line-height: 16px
           .goods-price
             display: flex
