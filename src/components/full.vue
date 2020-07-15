@@ -4,7 +4,7 @@
       <img
         v-for="item in oneColumn.content"
         :key="item.uuid"
-        :src="item.src"
+        v-lazy="item.src"
         alt=""
         width="100%"
         height="125px"

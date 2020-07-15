@@ -13,7 +13,6 @@ const actions = {
   async getHomeList({ commit }) {
     const result = await reqHomeList()
     const { code, data } = result
-    console.log(data)
     if (code === 0) {
       commit('RECEIVE_REQ_HOME_LIST', data)
     }

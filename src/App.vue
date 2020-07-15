@@ -1,8 +1,14 @@
 <template>
   <div id="app">
-    <Download />
-    <Footer v-if="$route.meta.isShowFooter" />
-    <router-view />
+    <keep-alive>
+      <Download />
+    </keep-alive>
+    <keep-alive>
+      <Footer v-if="$route.meta.isShowFooter" />
+    </keep-alive>
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
@@ -15,6 +21,8 @@ export default {
   components: {
     Footer,
     Download
+  },
+  methods: {
   }
 }
 </script>

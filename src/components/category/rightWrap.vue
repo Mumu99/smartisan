@@ -17,7 +17,7 @@
           :key="third.classifyId"
         >
           <img
-            :src="third.image"
+            v-lazy="third.image"
             alt=""
             width="86"
             height="86"

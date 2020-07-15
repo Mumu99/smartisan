@@ -11,7 +11,7 @@
       :key="el.uuid"
     ><img
         class="img"
-        :src="el.src"
+        v-lazy="el.src"
       ></swiper-slide>
     <div
       class="swiper-pagination"

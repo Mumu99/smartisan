@@ -85,7 +85,7 @@
           >
             <div class="shop-one">
               <img
-                :src="item.skuInfo[0].images"
+                v-lazy="item.skuInfo[0].images"
                 alt=""
                 width="75"
                 height="75"
@@ -119,7 +119,7 @@
           >
             <div class="shop-one">
               <img
-                :src="item.skuInfo[0].images"
+                v-lazy="item.skuInfo[0].images"
                 alt=""
                 width="75"
                 height="75"

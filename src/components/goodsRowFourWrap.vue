@@ -19,7 +19,7 @@
           <figure class="s-item-top">
             <span class="green">直降</span>
             <img
-              :src="item.images"
+              v-lazy="item.images"
               alt=""
               width="100"
               height="100"

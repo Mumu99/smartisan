@@ -5,7 +5,7 @@
       v-for="item in entryCenter.content"
       :key="item.uuid"
     >
-      <img :src="item.src">
+      <img v-lazy="item.src">
       <p>{{item.entryName}}</p>
     </li>
   </ul>

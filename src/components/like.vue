@@ -23,7 +23,7 @@
           <figure class="s-item-top">
             <span class="green">新品</span>
             <img
-              :src="item.images"
+              v-lazy="item.images"
               alt=""
               width="169"
               height="169"

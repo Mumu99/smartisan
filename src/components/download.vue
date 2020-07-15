@@ -4,7 +4,7 @@
     v-if="close"
   >
     <img
-      src="https://resource.smartisan.com/resource/738c9711dac80022b99a1b2ce16199a3.png?x-oss-process=image/resize,w_720/format,webp"
+      v-lazy="'https://resource.smartisan.com/resource/738c9711dac80022b99a1b2ce16199a3.png?x-oss-process=image/resize,w_720/format,webp'"
       alt=""
       height="48"
       width="100%"
