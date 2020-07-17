@@ -4,6 +4,7 @@
       v-model="value"
       placeholder="请输入搜索关键词"
       class="search-top"
+      @focus="toSearch"
     />
   </sticky>
 </template>
@@ -20,6 +21,11 @@ export default {
   data () {
     return {
       value: '' // 搜索的数据
+    }
+  },
+  methods: {
+    toSearch () {
+      this.$router.push({ path: '/search', query: { search: 'category' } })
     }
   }
 }

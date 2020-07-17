@@ -46,10 +46,13 @@
     >
       <!-- 长列表 -->
       <List
+        :immediate-check="false"
         v-model="loading"
         :finished="finished"
         finished-text="没有更多了"
         @load="onLoad"
+        loading-text="玩命加载中···"
+        style="flex-direction: column"
       >
         <li
           class="product-item van-hairline--bottom"
@@ -109,7 +112,7 @@ export default {
       this.isShowProduct = false
     }, 500),
     onCancel () {
-      this.$router.push('/')
+      this.$router.push(this.$route.query.search)
     },
     // 获取模糊搜索的异步action
     async getKeyWord () {
@@ -127,6 +130,8 @@ export default {
       await this.$store.dispatch('getSearchIds', searchObj).then(() => {
         this.getSearchProductList(this.searchIds.toString()).then(() => {
           this.list.push(...this.searchProductList)
+          console.log(this.searchProductList)
+          console.log(this.list)
         })
         // 成功后发送product请求获取商品
       })
@@ -147,7 +152,9 @@ export default {
       this.page++
       this.getSearchIds().then(() => {
         this.loading = false
-      }, () => {
+      }, (e) => {
+        console.log(e)
+        console.log(55555)
         this.finished = true
       })
     }

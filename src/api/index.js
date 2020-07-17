@@ -16,13 +16,11 @@ export const reqSuggest = keyWord =>
 // search获取spu商品的Id
 export const reqSearchId = ({ page, size, keyword }) =>
   ajaxSearch.get(`/search/result?page=${page}&size=${size}&keyword=${keyword}`)
-reqSearchId({
-  page: 1,
-  size: 20,
-  keyword: '抖音文创抖音小助手购物纸袋'
-}).then(a => console.log(a))
+// 获取商品信息
 export const reqSearchProduct = ids => ajaxProduct.get(`/spus?ids=${ids}`)
-// https://shopapi.smartisan.com/product/spus?ids=1000912,1000915,1000911,1000900,1000914,1000718,1000721,1000724,1000660,1000662,1000674,1000717,1000719,1000720,1000727,1000728,1000729,1000734,1000738,1000711
-reqSearchProduct(
-  '1000912,1000915,1000911,1000900,1000914,1000718,1000721,1000724,1000660,1000662,1000674,1000717,1000719,1000720,1000727,1000728,1000729,1000734,1000738,1000711'
-).then(a => console.log(a))
+// 获取商品的list信息
+export const reqProductList = ({ cid, clid, page }) =>
+  ajaxSearch.get(
+    `/search/goods-list?type=shop&category_id=${cid}&num=20&sort=sort&channel_id=${clid}&page=${page}`
+  )
+reqProductList({ cid: '719', clid: '1002', page: 2 }).then(a => console.log(a))

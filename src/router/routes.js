@@ -3,14 +3,17 @@ import Category from '@/pages/category'
 import Shopcat from '@/pages/shopcat'
 import User from '@/pages/user'
 import Search from '@/pages/search'
+import ShopList from '@/pages/shopList'
+import Event from '@/pages/event'
 
 export default [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: Home,
     meta: {
-      isShowFooter: true
+      isShowFooter: true,
+      active: 0
     }
   },
   {
@@ -18,7 +21,8 @@ export default [
     name: 'category',
     component: Category,
     meta: {
-      isShowFooter: true
+      isShowFooter: true,
+      active: 1
     }
   },
   {
@@ -26,7 +30,8 @@ export default [
     name: 'shopcat',
     component: Shopcat,
     meta: {
-      isShowFooter: true
+      isShowFooter: true,
+      active: 2
     }
   },
   {
@@ -34,7 +39,8 @@ export default [
     name: 'user',
     component: User,
     meta: {
-      isShowFooter: true
+      isShowFooter: true,
+      active: 3
     }
   },
   {
@@ -44,5 +50,20 @@ export default [
     meta: {
       isShowFooter: false
     }
+  },
+  {
+    path: '/shoplist',
+    name: 'shoplist',
+    component: ShopList
+  },
+  {
+    path: '/event',
+    name: 'event',
+    component: Event
+  },
+  // 路由重定向
+  {
+    path: '/',
+    redirect: '/home'
   }
 ]

@@ -34,7 +34,7 @@ export default {
       a.isFixed === true ? this.isScroll = true : this.isScroll = false
     },
     toSearch () {
-      this.$router.replace('/search')
+      this.$router.push({ path: '/search', query: { search: 'home' } })
     }
   }
 }

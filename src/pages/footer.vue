@@ -7,7 +7,7 @@
   >
     <TabbarItem
       icon="home-o"
-      to="/"
+      to="/home"
     >首页</TabbarItem>
     <TabbarItem
       icon="bars"
@@ -37,6 +37,11 @@ export default {
     return {
       active: 0
     }
+  },
+  mounted () {
+    this.active = this.$route.meta.active
+    // console.log(this.$route)
+    // if(this.$route){}
   }
 }
 </script>

@@ -1,15 +1,13 @@
 <template>
   <section>
-    <a href="javascript:;">
-      <img
+    <router-link to="/shoplist"><img
         v-for="item in oneColumn.content"
         :key="item.uuid"
         v-lazy="item.src"
         alt=""
         width="100%"
         height="125px"
-      >
-    </a>
+      ></router-link>
   </section>
 </template>
 

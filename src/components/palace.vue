@@ -10,6 +10,7 @@
         <div
           class="left-content"
           v-if="item.floor[0].activityInfo"
+          @click="$router.push('/event')"
         >
           <h2 class="left-title">{{item.floor[0].titleConfig.title}}</h2>
           <p class="left-palace"><span>{{item.floor[0].activityInfo.homeDescribe}}</span>
