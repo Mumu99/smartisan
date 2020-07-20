@@ -67,6 +67,8 @@ export default {
     .floot-one-content
       display: flex
       justify-content: space-between
+      overflow-x: auto
+      overflow-y: hidden
       margin-top: 20px
       .name
         text-align: center
