@@ -14,6 +14,10 @@ module.exports = {
         target: 'https://shopapi.smartisan.com',
         changeOrigin: true
       },
+      '/admin': {
+        target: 'http://game.zhuoyw.com',
+        changeOrigin: true
+      },
       '/product': {
         target: 'https://shopapi.smartisan.com',
         changeOrigin: true
