@@ -1,8 +1,6 @@
 import ajax from './ajax'
 import ajaxSearch from './ajax_search'
 import ajaxProduct from './ajax_product'
-import ajaxLogin from './ajax_Login'
-import qs from 'qs'
 // 首页数据
 export const reqHomeList = () => ajax.get(`/new/home?channel_id=1002`)
 // 猜你喜欢
@@ -25,19 +23,9 @@ export const reqProductList = ({ cid, clid, page }) =>
   ajaxSearch.get(
     `/search/goods-list?type=shop&category_id=${cid}&num=20&sort=sort&channel_id=${clid}&page=${page}`
   )
-reqProductList({ cid: '719', clid: '1002', page: 2 }).then(a => console.log(a))
-
-// 测试 http://game.zhuoyw.com/admin/login
-const c = {
-  email: 'admin@qq.com',
-  password: 'abc111!!!1'
-}
-export const reqLogin = x => ajaxLogin.post('/login', x)
-reqLogin(qs.stringify(c)).then(
-  a => {
-    console.log(a)
-  },
-  e => {
-    console.log(e)
-  }
-)
+// 获取限时秒杀的数据
+// shopapi.smartisan.com/mobile/seckiltime?secklId=0&page=1&pageSize=10
+export const reqSeckTime = ({ page, pageSize }) =>
+  ajax.get(`/seckiltime?secklId=0&page=${page}&pageSize=${pageSize}`)
+export const reqSeckTimeWait = ({ page, pageSize }) =>
+  ajax.get(`/seckiltime?secklId=3858&page=${page}&pageSize=${pageSize}`)
