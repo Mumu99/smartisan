@@ -15,6 +15,7 @@
           class="s-item"
           v-for="item in goodsRow.skuInfo"
           :key="item.uuid"
+          @click="$router.push('/home/item')"
         >
           <figure class="s-item-top">
             <span class="green">直降</span>

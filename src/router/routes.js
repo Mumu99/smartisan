@@ -5,6 +5,7 @@ import User from '@/pages/user'
 import Search from '@/pages/search'
 import ShopList from '@/pages/shopList'
 import Event from '@/pages/event'
+import Item from '@/pages/item'
 
 export default [
   {
@@ -60,6 +61,11 @@ export default [
     path: '/event',
     name: 'event',
     component: Event
+  },
+  {
+    path: '/home/item',
+    name: 'item',
+    component: Item
   },
   // 路由重定向
   {
