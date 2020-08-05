@@ -15,7 +15,7 @@
           class="s-item"
           v-for="item in goodsRow.skuInfo"
           :key="item.uuid"
-          @click="$router.push('/home/item')"
+          @click="$router.push({path: `/home/item`,query:{id:item.spuId}})"
         >
           <figure class="s-item-top">
             <span class="green">直降</span>
@@ -54,6 +54,11 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    // toItem (item) {
+    //   console.log(item)
+    // }
   }
 }
 </script>

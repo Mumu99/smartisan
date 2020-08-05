@@ -29,3 +29,9 @@ export const reqSeckTime = ({ page, pageSize }) =>
   ajax.get(`/seckiltime?secklId=0&page=${page}&pageSize=${pageSize}`)
 export const reqSeckTimeWait = ({ page, pageSize }) =>
   ajax.get(`/seckiltime?secklId=3858&page=${page}&pageSize=${pageSize}`)
+
+// 获取商品详情页的数据
+export const reqGetDesic = ids => ajaxProduct.get(`/spus?ids=${ids}`)
+reqGetDesic('1000602').then(a => {
+  console.log(a)
+})
