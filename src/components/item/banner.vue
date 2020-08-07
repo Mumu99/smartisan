@@ -5,26 +5,14 @@
       :options="swiperOptions"
       class="swiper-container"
     >
-      <swiper-slide class="swiper-slide"><img
+      <swiper-slide
+        class="swiper-slide"
+        v-for="(item,index) in bannerList "
+        :key="index"
+      ><img
           class="img"
-          src="https://resource.smartisan.com/resource/e991f946530a7cfab3d9670dd8b1371b.png?x-oss-process=image/resize,w_576/format,webp"
+          v-lazy="item"
         /></swiper-slide>
-
-      <swiper-slide class="swiper-slide"><img
-          class="img"
-          src="https://resource.smartisan.com/resource/6d3a3537280c3a71cb174cfec5fa5b1e.png?x-oss-process=image/resize,w_576/format,webp"
-        /></swiper-slide>
-
-      <swiper-slide class="swiper-slide"><img
-          class="img"
-          src="https://resource.smartisan.com/resource/465234ac5536cf3c5a8ab400e02d6b5f.png?x-oss-process=image/resize,w_576/format,webp"
-        /></swiper-slide>
-
-      <swiper-slide class="swiper-slide"><img
-          class="img"
-          src="https://resource.smartisan.com/resource/52fcdb420db14c83448475f650df06c4.png?x-oss-process=image/resize,w_576/format,webp"
-        /></swiper-slide>
-
       <div
         class="swiper-pagination"
         slot="pagination"
@@ -38,6 +26,9 @@ export default {
   name: 'Banner',
   components: {
     // 注册组件
+  },
+  props: {
+    bannerList: Array
   },
   data () {
     return {

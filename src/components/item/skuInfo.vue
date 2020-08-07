@@ -2,12 +2,7 @@
   <div class="skuInfo">
     <p>商品详情</p>
     <img
-      src="https://resource.smartisan.com/resource/1cb3dbe289dc7c4db4df8bfba383b3db.png?x-oss-process=image/resize,w_750/indexcrop,y_1440,i_0/format,webp"
-      width="100%"
-      alt=""
-    />
-    <img
-      src="https://resource.smartisan.com/resource/1cb3dbe289dc7c4db4df8bfba383b3db.png?x-oss-process=image/resize,w_750/indexcrop,y_1440,i_1/format,webp"
+      src="https://resource.smartisan.com/resource/8506a09cfe7ce79807df1347ead51386.png"
       width="100%"
       alt=""
     />

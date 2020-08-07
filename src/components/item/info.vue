@@ -6,8 +6,8 @@
         满99元包邮
       </span>
     </div>
-    <h3>Smartisan 真无线TWS蓝牙耳机</h3>
-    <div class="spu-info">智能配对 开盖即连</div>
+    <h3>{{spu.spu_mobile_title}}</h3>
+    <div class="spu-info">{{spu.spu_mobile_sub_title}}</div>
   </div>
 </template>
 
@@ -16,6 +16,9 @@ export default {
   name: 'Info',
   components: {
     // 注册组件
+  },
+  props: {
+    spu: Object
   },
   data () {
     return {

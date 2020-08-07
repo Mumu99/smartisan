@@ -1,6 +1,7 @@
 import ajax from './ajax'
 import ajaxSearch from './ajax_search'
 import ajaxProduct from './ajax_product'
+import ajaxUserText from './ajaxUserText'
 // 首页数据
 export const reqHomeList = () => ajax.get(`/new/home?channel_id=1002`)
 // 猜你喜欢
@@ -32,6 +33,8 @@ export const reqSeckTimeWait = ({ page, pageSize }) =>
 
 // 获取商品详情页的数据
 export const reqGetDesic = ids => ajaxProduct.get(`/spus?ids=${ids}`)
-reqGetDesic('1000602').then(a => {
-  console.log(a)
-})
+export const reqGetDesicBanner = ids =>
+  ajaxProduct.get(`/skus?ids=${ids},100063702&with_stock=true&with_spu=true`)
+// 用户评价
+export const reqGetUserText = ids =>
+  ajaxUserText.get(`/open/v1/preview?spu_id=${ids}`)

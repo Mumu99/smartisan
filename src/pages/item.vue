@@ -1,5 +1,8 @@
 <template>
-  <div class="container">
+  <div
+    class="container"
+    v-if="spuDesic.shop_info"
+  >
     <Sticky style="position: relative;
     z-index: 2;">
       <div class="header">
@@ -24,9 +27,9 @@
       </div>
     </Sticky>
     <!-- 轮播 -->
-    <Banner />
+    <Banner :bannerList="spuDesic.shop_info.ali_images" />
     <!-- 详情 -->
-    <Info />
+    <Info :spu="spuDesic.spu.shop_info" />
     <!-- 优惠信息 -->
     <Discount />
     <!-- 已选版本 -->
@@ -34,7 +37,7 @@
     <!-- 服务说明 -->
     <ServerInfo />
     <!-- 用户评价 -->
-    <UserText />
+    <UserText :userText="userText"/>
     <!-- 商品详情 -->
     <SkuInfo />
     <!-- 底部加购物车 -->
@@ -44,6 +47,7 @@
 
 <script>
 import { Sticky } from 'vant'
+import { mapState } from 'vuex'
 import Banner from '../components/item/banner'
 import Discount from '../components/item/discount'
 import Edition from '../components/item/edition'
@@ -69,7 +73,8 @@ export default {
   data () {
     return {
       currentIndex: 0,
-      itemList: ['商品', '评价', '详情', '推荐']
+      itemList: ['商品', '评价', '详情', '推荐'],
+      ids: '1000637'
     }
   },
   methods: {
@@ -100,9 +105,16 @@ export default {
       this.currentIndex = index
     }
   },
-  computed: {},
+  computed: {
+    ...mapState({
+      spuDesic: state => state.desic.spuDesic,
+      userText: state => state.desic.userText
+    })
+  },
   mounted () {
     window.addEventListener('scroll', this.isScroll, true)
+    this.$store.dispatch('getSpuDesic', this.ids)
+    this.$store.dispatch('getUserText', this.ids)
   }
 }
 </script>
