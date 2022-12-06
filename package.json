@@ -15,7 +15,7 @@
     "axios": "^0.19.2",
     "nprogress": "^0.2.0",
     "postcss-pxtorem": "^5.1.1",
-    "qs": "^6.9.4",
+    "qs": "^6.9.7",
     "sha1": "^1.1.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
